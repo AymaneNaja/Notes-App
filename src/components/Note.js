@@ -7,8 +7,9 @@ import Search from './Search';
 import { useState } from 'react';
 const Note = () => {
     const {Notes,setNotes,Search}=useNote()
+    const [err,setErr]=useState(false)
+
     const textRef=useRef()
-    const [showFillter,setShowFiller]=useState(true)
     function handleAddNote(e){
       e.preventDefault();
       if(textRef.current.value.length>=3){
@@ -23,6 +24,12 @@ const Note = () => {
       }
       setNotes(prev=>[...prev,NewNote])
       textRef.current.value=''}
+      else{
+        setErr(true)
+        setTimeout(() => {
+          setErr(false)
+        },3000);
+      }
     }
     function deleteNote(e,noteId){
       e.preventDefault();
@@ -57,7 +64,7 @@ const Note = () => {
     <div className='mt-2 flex gap-2 flex-wrap '>
 
         <FixedNote Search={Search}   Notes={Notes}  deleteNote={deleteNote} Bookmark={Bookmark} />
-        <FillingForm   textRef={textRef}  handleAddNote={handleAddNote}  />
+        <FillingForm   textRef={textRef}  handleAddNote={handleAddNote} err={err}  />
         
     </div>
   )

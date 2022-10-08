@@ -32,11 +32,11 @@ export function FixedNote({
           }}><FaTrashAlt className='' /></button>
                     <button style={{color:el.bookMrkd?'#e9ec23':'gray'}}
                     className='absolute top-2 right-2
-                    text-gray-500 hover:text-yellow-400 transition-all p-1.5
+                    text-gray-500 hover:text-yellow-600 transition-all p-1.5
                     rounded-lg flex justify-center
-                    ' onClick={() => { Bookmark(el.id);}}><AiTwotoneStar className='scale-110  p-0' /></button>
+                    ' onClick={() => { Bookmark(el.id);}}><AiTwotoneStar className='scale-110 p-0 hover:text-yellow-400' /></button>
                 </div>:null}</>
-      })}
+                                })}
             </div> : null}
         </div> 
     </>
